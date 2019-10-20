@@ -5,15 +5,19 @@ import HomeContainer from './components/tabbar/HomeContainer.vue'
 import MemberContainer from './components/tabbar/MemberContainer.vue'
 import SearchContainer from './components/tabbar/SearchContainer.vue'
 import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
+import NewList from './components/news/NewList.vue'
+import NewsInfo from './components/news/NewsInfo.vue'
 
 
 var router = new VueRouter({
-    routes:[
+    routes:[ //配置路由规则
         { path:'/', redirect:'/home'},
         { path:'/home', component:HomeContainer},
         { path:'/member', component:MemberContainer},
         { path:'/shopcar', component:ShopcarContainer},
-        { path:'/search', component:SearchContainer}
+        { path:'/search', component:SearchContainer},
+        { path:'/home/newlist', component: NewList},
+        { path:'/home/newsinfo/:id', component: NewsInfo}
     ],
     linkActiveClass:'mui-active' //覆盖原来的类  router-link active
 })
