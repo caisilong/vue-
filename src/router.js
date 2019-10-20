@@ -7,6 +7,7 @@ import SearchContainer from './components/tabbar/SearchContainer.vue'
 import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
 import NewList from './components/news/NewList.vue'
 import NewsInfo from './components/news/NewsInfo.vue'
+import PhotoList from './components/photos/PhotoList.vue'
 
 
 var router = new VueRouter({
@@ -17,7 +18,8 @@ var router = new VueRouter({
         { path:'/shopcar', component:ShopcarContainer},
         { path:'/search', component:SearchContainer},
         { path:'/home/newlist', component: NewList},
-        { path:'/home/newsinfo/:id', component: NewsInfo}
+        { path:'/home/newsinfo/:id', component: NewsInfo},
+        { path:'/home/photolist', component:PhotoList}
     ],
     linkActiveClass:'mui-active' //覆盖原来的类  router-link active
 })
