@@ -1,12 +1,7 @@
 <template>
     <div>
         <!-- 轮播图区域 -->
-        <mt-swipe :auto="4000">
-            <!-- 在组件中使用v-for循环的话  一定要使用key -->
-            <mt-swipe-item v-for="item in lunbotulist" :key="item.id">
-                <img :src="item.img" alt="轮播图片">
-            </mt-swipe-item>  
-        </mt-swipe>
+        <swiper :lunbotulist="lunbotulist" :isfull="true"></swiper>
         
         <!-- 九宫格到六宫格的改造 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -18,9 +13,10 @@
                 <router-link to="/home/photolist">
                     <img src="../../images/menu2.png" alt="图标" >
                     <div class="mui-media-body">图片分享</div></router-link></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <router-link to="/home/goodslist">
                     <img src="../../images/menu3.png" alt="图标" >
-                    <div class="mui-media-body">商品购买</div></a></li>
+                    <div class="mui-media-body">商品购买</div></router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img src="../../images/menu4.png" alt="图标" >
                     <div class="mui-media-body">留言反馈</div></a></li>
@@ -36,11 +32,12 @@
 
 <script>
 import {Toast} from 'mint-ui'
+
+import swiper from '../subcomponents/swiper.vue'
 export default {
     data(){
         return {
-            lunbotulist:[]
-
+            lunbotulist:[]  //轮播图数组
         }
     },
     created(){
@@ -56,30 +53,16 @@ export default {
                     Toast('加载图片数据失败')
                 }
             })
-        }
+        }    
+    },
+     components:{
+            swiper
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe{
-    height:200px;
-    .mint-swipe-item{
-        &:nth-child(1){
-            background-color: red;
-        }
-        &:nth-child(2){
-            background-color:blue;
-        }
-        &:nth-child(3){
-            background-color:cyan;
-        }
-    }
-    img{
-        width:100%;
-        height:100%;
-    }
-}
+
 .mui-grid-view.mui-grid-9{
     background-color:white;
     border:none;

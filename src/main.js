@@ -23,6 +23,10 @@ Vue.http.options.root = 'http://www.liulongbin.top:3005';
 // 全局设置post时候，表单数据的格式    application/x-www-form-urlencoded
 Vue.http.options.emulateJSON = true;
 
+// 安装图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+
 
 // 导入mint-ui的样式
 import './lib/mui/css/mui.min.css'
